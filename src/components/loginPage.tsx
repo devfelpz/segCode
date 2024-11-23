@@ -4,20 +4,20 @@ import mainLogo from "./../assets/mainLogo.svg";
 
 const LoginPage = () => {
   return (
-<main className="bg-stone-800 text-white w-full h-screen flex flex-col">
+<main className="bg-stone-800 text-white w-full h-screen flex flex-col overflow-y-auto">
   <header>
     <div className="flex mx-7 my-7">
       <img src={mainLogo} alt="Logo da SegCode" className="w-60" />
     </div>
   </header>
-  <section className="flex-grow grid grid-cols-2">
-    <div className="flex justify-center items-center">
-      <form className="w-full max-w-md" aria-labelledby="login-form-title">
+  <section className="flex-grow grid grid-cols-1 md:grid-cols-2">
+    <div className="flex justify-center items-center px-4 md:px-0">
+      <form className="w-full max-w-md px-4 sm:px-8 md:px-0" aria-labelledby="login-form-title">
         <div className="flex flex-col items-center justify-center">
-          <p id="login-form-title" className="text-4xl font-bold tracking-wide text-white">
+          <p id="login-form-title" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide text-white">
             SEGCODE
           </p>
-          <p className="text-sm ml-20 uppercase text-gray-400 mt-2 tracking-widest">
+          <p className="text-xs sm:text-sm ml-0 sm:ml-20 uppercase text-gray-400 mt-2 tracking-widest">
             SURVEILLANCE TOOLS
           </p>
         </div>
@@ -54,7 +54,7 @@ const LoginPage = () => {
           </div>
         </div>
         <button
-          className="px-8 py-4 mt-6 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full font-bold transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg w-full"
+          className="px-4 sm:px-6 py-2 sm:py-3 mt-6 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full font-bold transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg w-full"
           type="submit"
           aria-label="Entrar no sistema SegCode"
         >
@@ -62,8 +62,8 @@ const LoginPage = () => {
         </button>
       </form>
     </div>
-    <div className="flex justify-center items-center">
-      <img src={illustration} alt="Ilustração de ferramentas de vigilância" />
+    <div className="hidden md:flex justify-center items-center">
+      <img src={illustration} className='max-w-full sm:w-2/3 md:w-max ' alt="Ilustração de ferramentas de vigilância" />
     </div>
   </section>
   <footer className="bg-stone-800 p-4 border-t border-stone-600">
