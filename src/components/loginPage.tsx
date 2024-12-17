@@ -5,7 +5,7 @@ import InputField from "./input";
 const LoginPage = () => {
 	return (
 		<main className="bg-blue-100 text-white w-full h-screen flex items-center justify-center p-4 sm:p-6 min-h-96">
-			<div className="bg-white rounded-lg shadow-2xl flex items-center justify-center p-6 sm:p-10 w-full max-w-7xl h-3/4 landscape:px-24  landscape:p-[180px]">
+			<div className="bg-white rounded-lg shadow-2xl flex items-center justify-center p-6 sm:p-10 w-full max-w-7xl h-3/4 landscape:px-24  landscape:p-[300px] ">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 w-full items-center">
 					<div className="hidden md:flex justify-center items-center ">
 						<img
