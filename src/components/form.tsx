@@ -1,9 +1,16 @@
+import useLogin from "../hooks/useLogin";
 import logo from "./../assets/mainLogo.svg";
 import InputField from "./input";
 
 const LoginForm = () => {
+	const { register, handleSubmit, onSubmit, errors, isLoading } = useLogin();
+
 	return (
-		<form className="w-full space-y-6" aria-labelledby="login-form-title">
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			className="w-full space-y-6"
+			aria-labelledby="login-form-title"
+		>
 			<div className="flex justify-center items-center mb-4">
 				<img
 					src={logo}
@@ -13,15 +20,32 @@ const LoginForm = () => {
 			</div>
 
 			<div className="px-4 sm:px-6 py-4 flex flex-col justify-center gap-6">
-				<InputField id="usuario" label="Usuário" type="text" />
-				<InputField id="senha" label="Senha" type="password" />
+				<InputField
+					id="usuario"
+					label="Usuário"
+					type="text"
+					register={register}
+					errorMessage={errors.usuario?.message}
+				/>
+				<InputField
+					id="senha"
+					label="Senha"
+					type="password"
+					register={register}
+					errorMessage={errors.senha?.message}
+				/>
 			</div>
 
 			<button
 				type="submit"
-				className="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold rounded-lg hover:shadow-md transition-transform transform-gpu hover:-translate-y-1 text-sm sm:text-base"
+				className={`w-full py-3 text-white font-bold rounded-lg transition-transform transform-gpu text-sm sm:text-base ${
+					isLoading
+						? "bg-gray-400 cursor-not-allowed"
+						: "bg-gradient-to-r from-blue-500 to-blue-700 hover:shadow-md hover:-translate-y-1"
+				}`}
+				disabled={isLoading}
 			>
-				Entrar
+				{isLoading ? "Entrando..." : "Entrar"}
 			</button>
 		</form>
 	);
