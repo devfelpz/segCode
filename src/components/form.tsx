@@ -1,9 +1,9 @@
 import useLogin from "../hooks/useLogin";
 import logo from "./../assets/mainLogo.svg";
+import Alert from "./alert";
 import InputField from "./input";
-
 const LoginForm = () => {
-	const { register, handleSubmit, onSubmit, errors, isLoading } = useLogin();
+	const { register, handleSubmit, onSubmit, errors, isLoading, alert,setAlert } = useLogin();
 
 	return (
 		<form
@@ -11,6 +11,13 @@ const LoginForm = () => {
 		  className="w-full max-w-xs sm:max-w-md space-y-6"
 		  aria-labelledby="login-form-title"
 		>
+			   {alert && (
+        <Alert
+          message={alert.message}
+          severity={alert.severity}
+          onClose={() => setAlert(null)}
+        />
+      )}
 		  <div className="flex justify-center items-center mb-4">
 			<img
 			  src={logo}
@@ -50,7 +57,7 @@ const LoginForm = () => {
 			{isLoading ? (
 			  <span className="flex items-center justify-center gap-2">
 				{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
-<svg
+				<svg
 				  className="animate-spin h-5 w-5 text-white"
 				  xmlns="http://www.w3.org/2000/svg"
 				  fill="none"
